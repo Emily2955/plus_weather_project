@@ -28,9 +28,6 @@ def convert_date(iso_string):
     return date.strftime("%A %d %B %Y")
     
 
-
-
-
 def convert_f_to_c(temp_in_fahrenheit):
     """Converts a temperature from Fahrenheit to Celcius.
 
@@ -68,17 +65,17 @@ def load_data_from_csv(csv_file):
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
 
-
     data=[]
     with open(csv_file, "r") as file:
         reader = csv.reader(file)
         next(reader)
-
         for row in reader:
-            if row:
-                data.append(row)
+            if row!=[]:
+                date=row[0]
+                mintemp=float(row[1])
+                maxtemp=float(row[2])
+                data.append([date,mintemp,maxtemp])
     return data
-
 
 
 def find_min(weather_data):
