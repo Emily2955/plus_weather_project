@@ -68,14 +68,15 @@ def load_data_from_csv(csv_file):
         A list of lists, where each sublist is a (non-empty) line in the csv file.
     """
 
-    import csv
 
     data=[]
     with open(csv_file, "r") as file:
         reader = csv.reader(file)
-        for row in reader:
-            print(', '.join(row))
+        next(reader)
 
+        for row in reader:
+            if row:
+                data.append(row)
     return data
 
 
