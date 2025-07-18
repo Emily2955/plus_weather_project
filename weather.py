@@ -128,6 +128,7 @@ def generate_summary(weather_data):
     pass
 
 
+
 def generate_daily_summary(weather_data):
     """Outputs a daily summary for the given weather data.
 
